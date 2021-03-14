@@ -1,0 +1,14 @@
+<div class="dialog pt-8 pb-8">
+  <div mat-dialog-title>Повідомлення</div>
+  <div mat-dialog-content>
+    <div *ngIf="message">{{message}}</div>
+  </div>
+  <div mat-dialog-actions fxLayoutAlign="end center">
+    <button class="acceptButton"
+            mat-raised-button
+            color="primary"
+            (click)="close(true)">
+      <span class="acceptButtonText">Ок</span>
+    </button>
+  </div>
+</div>

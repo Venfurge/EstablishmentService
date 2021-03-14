@@ -1,0 +1,33 @@
+@import 'src/app.theme.scss';
+
+.dialog {
+  width: 400px;
+
+  @include media-breakpoint('xs') {
+    width: 65vw;
+  }
+
+  .acceptButton {
+    @include media-breakpoint('xs') {
+      width: 100%;
+    }
+  }
+
+  .acceptButtonText {
+    color: $default-navigation-text-color;
+  }
+
+  .mat-dialog-title {
+    margin-bottom: 15px;
+
+    @include media-breakpoint('xs') {
+      margin-bottom: 10px;
+    }
+  }
+
+  .mat-dialog-content {
+    @include media-breakpoint('xs') {
+      margin-bottom: 5px;
+    }
+  }
+}
