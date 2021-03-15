@@ -162,6 +162,9 @@ namespace EstablishmentService
         {
             services.AddTransient<TokenService>();
             services.AddTransient<AuthService>();
+            services.AddTransient<UserService>();
+            services.AddTransient<FileService>();
+            services.AddTransient<ProfileService>();
         }
     }
 }
