@@ -1,0 +1,51 @@
+@import 'src/app.theme.scss';
+
+mat-toolbar {
+  .menu-button {
+    color: $default-navigation-text-color;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+
+    .logo-img {
+      height: 48px;
+    }
+  }
+
+  .profile-icon {
+    font-size: 3rem;
+  }
+
+  .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .mat-menu-item {
+    background-color: black !important;
+  }
+
+  .container {
+    color: $default-navigation-text-color;
+
+    links {
+      margin-right: 24px;
+
+      @include media-breakpoint('xs') {
+        margin-right: 4px;
+      }
+    }
+
+    .profile-links {
+      font-size: 1.5rem;
+    }
+
+    a.disabled {
+      pointer-events: none;
+      cursor: default;
+      color: darken(#fff,10%)
+    }
+  }
+}

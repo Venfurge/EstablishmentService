@@ -1,0 +1,52 @@
+@import 'src/app.theme.scss';
+
+.container {
+  min-height: 93.4vh;
+  width: 100%;
+
+  .card {
+    position: relative;
+    width: 600px;
+    min-height: 320px;
+
+    @include media-breakpoint('xs') {
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    .form-label {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .backgroundSpinner {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.12);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 10;
+
+      .spinner {
+        z-index: 20;
+      }
+    }
+
+    .login-form {
+      width: 100%;
+
+      .loginButton {
+        width: 100%;
+      }
+
+      .reg-link {
+        color: $primary-url-color;
+      }
+
+      .loginButtonText {
+        color: $default-navigation-text-color;
+      }
+    }
+  }
+}

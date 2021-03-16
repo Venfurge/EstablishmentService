@@ -1,0 +1,61 @@
+<div fxLayout="row" fxLayouAlign="space-between">
+  <div class="container" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center">
+    <mat-card class="card mat-elevation-z8" fxLayoutAlign="center center">
+
+      <div class="backgroundSpinner" *ngIf="isLoginLoading" fxLayoutAlign="center center">
+        <mat-spinner class="spinner" diameter="60">
+        </mat-spinner>
+      </div>
+
+      <form [formGroup]="loginForm" class="login-form px-12 pt-12" fxLayout="column"
+            (ngSubmit)="login()">
+        <div fxLayoutAlign="center center">
+          <mat-label><h1 class="form-label">Логін</h1></mat-label>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
+          <input matInput
+                 placeholder="Login"
+                 formControlName="login">
+          <button mat-icon-button
+                  matSuffix
+                  tabindex="-1"
+                  fxLayoutAlign="center center">
+            <mat-icon>person</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.controls['login'].hasError('required')">Введіть логін</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput
+                 [type]="isHide ? 'password' : 'text'"
+                 autocomplete="on"
+                 formControlName="password">
+          <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Введіть пароль</mat-error>
+
+          <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="isHide = !isHide">
+            <mat-icon>{{isHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div fxLayoutAlign="center">
+          <button class="loginButton"
+                  mat-raised-button
+                  color="primary"
+                  type="submit">
+            <mat-label class="loginButtonText">Увійти</mat-label>
+          </button>
+        </div>
+
+        <a fxLayoutAlign="center center"
+           href="/reg"
+           class="reg-link pt-8">
+          <span>Ви ще не створили аккаунт?</span>
+        </a>
+
+      </form>
+    </mat-card>
+  </div>
+</div>

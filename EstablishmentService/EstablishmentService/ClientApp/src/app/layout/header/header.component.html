@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div class="container ml-0 pl-0" fxLayout="row" fxLayoutAlign="start stretch">
+      <a class="pl-8 logo" routerLink="/">
+        <div class="mr-24" fxLayoutAlign="center center">
+          <img class="logo-img" src="/images/logo.png" />
+        </div>
+      </a>
+
+      <div *ngIf="!isDeviceSm" fxLayout="row">
+        <a class="links pr-8"
+           fxLayoutAlign="space-between center"
+           *ngFor="let link of navigationLinks"
+           [routerLink]="link.linkUrl"
+           [routerLinkActive]="'active-url'"
+           [routerLinkActiveOptions]="{exact:true}"
+           [class.disabled]="link.disabled">
+          <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+          <span>{{link.linkName}}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mx-24">
+      <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon class="profile-icon pr-48">account_circle</mat-icon>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before" class="mt-8 w-160">
+        <a class="profile-links pl-32"
+           mat-menu-item
+           fxLayoutAlign="start center"
+           fxLayoutGap="8px"
+           *ngFor="let link of profileLinks"
+           [routerLink]="link.linkUrl"
+           [routerLinkActive]="'active-url'"
+           [routerLinkActiveOptions]="{exact:true}"
+           [class.disabled]="link.disabled">
+          <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+          <span>{{link.linkName}}</span>
+        </a>
+        <div class="pl-32"
+             mat-menu-item
+             fxLayoutAlign="start center"
+             fxLayoutGap="8px"
+             (click)="onLogOut()"
+             *ngIf="isAuthorized">
+
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log Out</span>
+        </div>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+

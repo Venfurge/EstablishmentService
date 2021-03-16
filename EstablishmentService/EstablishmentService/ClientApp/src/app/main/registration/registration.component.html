@@ -1,0 +1,77 @@
+<div fxLayout="row" fxLayouAlign="space-between">
+  <div class="container" fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center">
+    <mat-card class="card mat-elevation-z8" fxLayoutAlign="center center">
+
+      <div class="backgroundSpinner" *ngIf="isLoading" fxLayoutAlign="center center">
+        <mat-spinner class="spinner" diameter="60">
+        </mat-spinner>
+      </div>
+
+      <form [formGroup]="registrationForm" class="login-form px-12 pt-12" fxLayout="column"
+            (ngSubmit)="register()">
+        <div fxLayoutAlign="center center">
+          <mat-label><h1 class="form-label">Регістрація</h1></mat-label>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Login</mat-label>
+          <input matInput
+                 placeholder="Login"
+                 formControlName="login">
+          <button mat-icon-button
+                  matSuffix
+                  tabindex="-1"
+                  fxLayoutAlign="center center">
+            <mat-icon>person</mat-icon>
+          </button>
+          <mat-error *ngIf="registrationForm.controls['login'].hasError('required')">Введіть логін.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pass-margin">
+          <mat-label>Password</mat-label>
+          <input matInput
+                 [type]="isPasswordHide ? 'password' : 'text'"
+                 autocomplete="on"
+                 formControlName="password">
+          <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">Введіть пароль.</mat-error>
+          <mat-error *ngIf="registrationForm.controls['password'].hasError('minlength')">Пароль повинен містити мінімум 8 символів.</mat-error>
+          <mat-error *ngIf="registrationForm.controls['password'].hasError('pattern')">Пароль повинен містити хоча б один великий, один малий символ та цифру.</mat-error>
+
+          <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="isPasswordHide = !isPasswordHide">
+            <mat-icon>{{isPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mb-4">
+          <mat-label>Repeat Password</mat-label>
+          <input matInput
+                 [type]="isPasswordCompleteHide ? 'password' : 'text'"
+                 autocomplete="on"
+                 formControlName="completedPassword">
+          <mat-error *ngIf="registrationForm.controls['completedPassword'].hasError('required')">Повторіть пароль.</mat-error>
+          <mat-error *ngIf="registrationForm.controls['completedPassword'].hasError('mustMatch')">Паролі повинні співпадати.</mat-error>
+
+          <button type="button" mat-icon-button matSuffix tabindex="-1" (click)="isPasswordCompleteHide = !isPasswordCompleteHide">
+            <mat-icon>{{isPasswordCompleteHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div fxLayoutAlign="center">
+          <button class="regButton"
+                  mat-raised-button
+                  color="primary"
+                  type="submit">
+            <mat-label class="regButtonText">Зарегіструватись</mat-label>
+          </button>
+        </div>
+
+        <a fxLayoutAlign="center center"
+           href="/login"
+           class="reg-link pt-8">
+          <span>Ви вже маєте аккаунт?</span>
+        </a>
+
+      </form>
+    </mat-card>
+  </div>
+</div>
