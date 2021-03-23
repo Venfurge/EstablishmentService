@@ -1,3 +1,5 @@
+import { ImageModel } from "../image/image.model";
+
 export class UserModel {
   public id: number;
   public login: string;
@@ -6,6 +8,7 @@ export class UserModel {
   public imageName: string;
   public imageLink: string;
   public role: string;
+  public image: ImageModel;
 
   constructor() {
     this.id = null;
@@ -15,5 +18,6 @@ export class UserModel {
     this.imageName = null;
     this.imageLink = null;
     this.role = "";
+    this.image = null;
   }
 }

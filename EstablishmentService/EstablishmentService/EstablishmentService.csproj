@@ -26,6 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3" />
@@ -44,6 +45,7 @@
     <None Remove="ClientApp\src\app\models\auth\login-request.model.ts" />
     <None Remove="ClientApp\src\app\models\auth\login-response.model.ts" />
     <None Remove="ClientApp\src\app\models\id-model-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\image\image.model.ts" />
     <None Remove="ClientApp\src\app\models\layout\navigation-link.model.ts" />
     <None Remove="ClientApp\src\app\models\model-response.model.ts" />
     <None Remove="ClientApp\src\app\models\user\add-user.model.ts" />
@@ -62,6 +64,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\id-model-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\image\image.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\layout\navigation-link.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\model-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user\add-user.model.ts" />

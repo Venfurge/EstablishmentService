@@ -21,6 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChangeUserPasswordComponent } from './profile/change-user-password/change-user-password.component';
+import { DragAndDropFileModule } from '../shared/drag-and-drop-file/drag-and-drop-file.module';
+import { ChangeProfileImageComponent } from './profile/change-profile-image/change-profile-image.component';
 
 const routes: Routes = [
   {
@@ -51,9 +54,13 @@ const routes: Routes = [
     LoginComponent,
     RegistrationComponent,
     ProfileComponent,
+    ChangeUserPasswordComponent,
+    ChangeProfileImageComponent,
   ],
   entryComponents: [
     MainPageComponent,
+    ChangeUserPasswordComponent,
+    ChangeProfileImageComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -62,6 +69,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
 
+    DragAndDropFileModule,
     MatTabsModule,
     MatFormFieldModule,
     MatTooltipModule,

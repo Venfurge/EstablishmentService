@@ -1,1 +1,37 @@
-﻿
+@import 'src/app.theme.scss';
+
+.profile-info-card {
+  width: 80%;
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+
+    &:hover {
+      cursor: pointer;
+      -webkit-filter: brightness(70%);
+      filter: brightness(70%);
+    }
+  }
+
+  .account-type-text {
+    color: #808080;
+  }
+
+  .worker-request-btn {
+    @include media-breakpoint('xs') {
+      margin-top: 12px;
+    }
+  }
+}
+
+.profile-tabs-block {
+  .profile-mat-tabs {
+    width: 80%;
+    height: 97vh;
+
+    .profile-mat-tabs-group {
+      max-height: 100%;
+    }
+  }
+}

@@ -29,6 +29,7 @@ namespace EstablishmentService.Services
         {
             //Get user
             var user = await _db.Users
+                .Include(v => v.Image)
                 .FirstOrDefaultAsync(v => v.Login == model.Login);
 
             //Check null
@@ -54,7 +55,8 @@ namespace EstablishmentService.Services
         {
             //Get user
             var user = await _db.Users
-                .FindAsync(id);
+                .Include(v => v.Image)
+                .FirstOrDefaultAsync(v => v.Id == id);
 
             //Check null
             if (user == null)

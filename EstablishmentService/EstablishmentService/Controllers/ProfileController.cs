@@ -58,7 +58,38 @@ namespace EstablishmentService.Controllers
         {
             return await ExecuteWithOkResponse(async () => await _profileService.EditProfile(GetUserId(), model));
         }
-       
+
+        /// <summary>
+        /// Edit user profile image
+        /// </summary>
+        /// <response code="200">User model</response>
+        /// <response code="400">Bad Model</response>
+        /// <response code="404">User or image not found</response>
+        [HttpPut]
+        [Route("edit-image")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<UserModel>> EditUserProfileImage([FromForm] EditUserImageRequest model)
+        {
+            return await ExecuteWithOkResponse(async () => await _profileService.EditProfileImage(GetUserId(), model));
+        }
+
+        /// <summary>
+        /// Delete user profile image
+        /// </summary>
+        /// <response code="200">User model</response>
+        /// <response code="400">Bad Model</response>
+        /// <response code="404">User not found</response>
+        [HttpPut]
+        [Route("delete-image")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<UserModel>> DeleteUserProfileImage()
+        {
+            return await ExecuteWithOkResponse(async () => await _profileService.DeleteProfileImage(GetUserId()));
+        }
 
         /// <summary>
         /// Change user password

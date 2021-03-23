@@ -1,1 +1,98 @@
-﻿<div style="border: 1px solid red">profile Component</div>
+<div fxLayout="column" fxLayouAlign="start center" fxLayoutGap="12px">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="profile-info-card mt-12"
+              fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="12px"
+              fxLayoutAlign="start stretch" fxLayoutAlign.lt-md="start center">
+
+      <div>
+        <div *ngIf="!userProfile.image">
+          <img class="profile-img" src="/images/empty-avatar.jpg"               
+               (click)="changeAvatar()" />
+        </div>
+
+        <div *ngIf="userProfile.image">
+          <img class="profile-img" src="{{userProfile.image.link}}"
+               (click)="changeAvatar()" />
+        </div>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-between stretch" fxLayoutGap="12px" fxFlex>
+        <form fxLayout="column" fxLayoutAlign="start stretch"
+              [formGroup]="form"
+              (ngSubmit)="editProfile()">
+
+          <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="8px" fxLayoutGap.xs="0px">
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>Логін</mat-label>
+              <input matInput
+                     placeholder="Логін"
+                     formControlName="login">
+              <button mat-icon-button
+                      matSuffix
+                      tabindex="-1"
+                      fxLayoutAlign="center center">
+              </button>
+              <mat-error *ngIf="form.controls['login'].hasError('required')">Введіть логін</mat-error>
+              <mat-error *ngIf="form.controls['login'].hasError('loginValid')">Логін вже зайнято</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>Ім'я</mat-label>
+              <input matInput
+                     placeholder="Ім'я"
+                     formControlName="firstName">
+              <button mat-icon-button
+                      matSuffix
+                      tabindex="-1"
+                      fxLayoutAlign="center center">
+              </button>
+              <mat-error *ngIf="form.controls['firstName'].hasError('required')">Введіть ім'я</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>Прізвище</mat-label>
+              <input matInput
+                     placeholder="Прізвище"
+                     formControlName="secondName">
+              <button mat-icon-button
+                      matSuffix
+                      tabindex="-1"
+                      fxLayoutAlign="center center">
+              </button>
+              <mat-error *ngIf="form.controls['secondName'].hasError('required')">Введіть прізвище</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" fxLayoutAlign="space-between stretch"
+               fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+            <span class="account-type-text">Тип аккаунту: {{userProfile.role}}</span>
+            <button mat-raised-button
+                    color="primary"
+                    type="submit">
+              Редагувати
+            </button>
+          </div>
+        </form>
+
+        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="12px"
+             fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+          <button mat-raised-button
+                  color="primary"
+                  (click)="changePassword()">
+            Змінити пароль
+          </button>
+        </div>
+      </div>
+
+    </mat-card>
+  </div>
+
+  <div class="profile-tabs-block mb-12" fxLayout="row" fxLayoutAlign="center start">
+    <mat-card class="profile-mat-tabs">
+      <mat-tab-group class="profile-mat-tabs-group" mat-stretch-tabs>
+
+        <mat-tab label="Коментарі"> Коментарі </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</div>

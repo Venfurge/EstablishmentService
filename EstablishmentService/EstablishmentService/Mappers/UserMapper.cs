@@ -12,6 +12,9 @@ namespace EstablishmentService.Mappers
                 Id = model.Id,
                 Login = model.Login,
                 Role = model.Role,
+                FirstName = model.FirstName,
+                SecondName = model.SecondName,
+                Image = ImageMapper.Map(model.Image),
             };
         }
 
@@ -22,6 +25,9 @@ namespace EstablishmentService.Mappers
                 Id = entity.Id,
                 Login = entity.Login,
                 Role = entity.Role,
+                FirstName = entity.FirstName,
+                SecondName = entity.SecondName,
+                Image = ImageMapper.Map(entity.Image),
             };
         }
     }

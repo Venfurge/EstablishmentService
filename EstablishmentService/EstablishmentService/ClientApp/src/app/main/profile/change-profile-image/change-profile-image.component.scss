@@ -1,0 +1,42 @@
+@import 'src/app.theme.scss';
+
+.dnd-container {
+  height: 200px;
+
+  @include media-breakpoint('xs') {
+    height: 20vh;
+  }
+
+  @include media-breakpoint('lt-lg') {
+    height: 200px;
+  }
+
+  .dnd-file-upload {
+    border-color: mat-color($primary);
+    border-width: 3px;
+    border-style: dotted;
+    border-radius: 16px;
+
+    .dnd-file-icon {
+      .mat-icon {
+        font-size: 64px;
+        width: unset;
+        height: unset;
+        color: mat-color($primary);
+      }
+    }
+
+    .dnd-upload-text {
+      color: mat-color($primary);
+    }
+  }
+}
+
+.dnd-file-over {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+}

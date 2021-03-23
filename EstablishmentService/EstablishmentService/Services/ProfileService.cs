@@ -1,4 +1,5 @@
-﻿using EstablishmentService.Exceptions;
+﻿using EstablishmentService.Entities;
+using EstablishmentService.Exceptions;
 using EstablishmentService.Mappers;
 using EstablishmentService.Models.User;
 using Microsoft.AspNetCore.Identity;
@@ -28,7 +29,9 @@ namespace EstablishmentService.Services
         public async Task<UserModel> GetProfile(int id)
         {
             //Get User
-            var user = await _db.Users.FindAsync(id);
+            var user = await _db.Users
+                .Include(v => v.Image)
+                .FirstOrDefaultAsync(v => v.Id == id);
 
             //Check null
             if (user == null)
@@ -69,6 +72,81 @@ namespace EstablishmentService.Services
 
             //Return
             return UserMapper.Map(user);
+        }
+
+        public async Task<UserModel> EditProfileImage(int id, EditUserImageRequest model)
+        {
+            //Get entiry
+            var entity = await _db.Users
+                .Include(v => v.Image)
+                .FirstOrDefaultAsync(v => v.Id == id);
+
+            //Check if exist
+            if (entity == null)
+                throw new NotFoundException("User");
+
+            //Upload it
+            var name = await _fileService.UploadFile(model.Image);
+
+            //Crop image
+            var newName = await _fileService.CropImage(name, 512, 512);
+
+            //Check if croped
+            if (newName == null)
+                throw new NotFoundException("Image");
+
+            //Delete Image if exist
+            if (entity.Image != null)
+            {
+                await _fileService.DeleteFile(entity.Image.Name);
+                _db.Images.Remove(entity.Image);
+            }
+
+            //Change entity
+            var link = $"/files/{newName}";
+            entity.Image = new ImageEntity
+            {
+                Name = newName,
+                Link = link,
+            };
+
+            //update on DB
+            _db.Users.Update(entity);
+            await _db.SaveChangesAsync();
+
+            //Get model for response
+            var user = UserMapper.Map(entity);
+
+            //Return user
+            return user;
+        }
+
+        public async Task<UserModel> DeleteProfileImage(int id)
+        {
+            //Get entity
+            var entity = await _db.Users
+                .Include(v => v.Image)
+                .FirstOrDefaultAsync(v => v.Id == id);
+
+            //Check if exist
+            if (entity == null)
+                throw new NotFoundException("User");
+
+            if (entity.Image != null)
+            {
+                //Remove file from server
+                await _fileService.DeleteFile(entity.Image.Name);
+
+                //Remove file from db
+                _db.Images.Remove(entity.Image);
+                await _db.SaveChangesAsync();
+            }
+
+            //Get model for response
+            var user = UserMapper.Map(entity);
+
+            //Return user
+            return user;
         }
 
         public async Task ChangePassword(int id, ChangeUserPasswordRequest model)

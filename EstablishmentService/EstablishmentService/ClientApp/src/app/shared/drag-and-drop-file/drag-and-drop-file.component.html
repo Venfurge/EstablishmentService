@@ -1,0 +1,9 @@
+<div class="dnd-container"
+     (drop)="dropped($event)"
+     (dragover)="dragover($event)"
+     (dragleave)="dragleave($event)">
+  <input type="file" [multiple]="multiple" accept="{{accept}}"
+         (change)="filesChanged($event.target.files)"
+         class="dnd-file-input" />
+  <ng-content></ng-content>
+</div>
