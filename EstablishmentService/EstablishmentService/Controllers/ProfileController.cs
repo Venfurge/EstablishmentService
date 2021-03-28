@@ -70,7 +70,7 @@ namespace EstablishmentService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<UserModel>> EditUserProfileImage([FromForm] EditUserImageRequest model)
+        public async Task<ActionResult<UserModel>> EditUserProfileImage([FromForm] EditImageRequest model)
         {
             return await ExecuteWithOkResponse(async () => await _profileService.EditProfileImage(GetUserId(), model));
         }

@@ -44,6 +44,8 @@
     <None Remove="ClientApp\src\app\models\api-response.model.ts" />
     <None Remove="ClientApp\src\app\models\auth\login-request.model.ts" />
     <None Remove="ClientApp\src\app\models\auth\login-response.model.ts" />
+    <None Remove="ClientApp\src\app\models\establishment\edit-establishment-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\establishment\establishment.model.ts" />
     <None Remove="ClientApp\src\app\models\id-model-request.model.ts" />
     <None Remove="ClientApp\src\app\models\image\image.model.ts" />
     <None Remove="ClientApp\src\app\models\layout\navigation-link.model.ts" />
@@ -63,6 +65,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\api-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-response.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\establishment\edit-establishment-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\establishment\establishment.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\id-model-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\image\image.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\layout\navigation-link.model.ts" />

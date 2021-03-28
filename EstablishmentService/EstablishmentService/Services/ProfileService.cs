@@ -74,7 +74,7 @@ namespace EstablishmentService.Services
             return UserMapper.Map(user);
         }
 
-        public async Task<UserModel> EditProfileImage(int id, EditUserImageRequest model)
+        public async Task<UserModel> EditProfileImage(int id, EditImageRequest model)
         {
             //Get entiry
             var entity = await _db.Users

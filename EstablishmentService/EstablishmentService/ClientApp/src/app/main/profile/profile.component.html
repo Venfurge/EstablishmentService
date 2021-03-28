@@ -35,7 +35,7 @@
               <mat-error *ngIf="form.controls['login'].hasError('required')">Введіть логін</mat-error>
               <mat-error *ngIf="form.controls['login'].hasError('loginValid')">Логін вже зайнято</mat-error>
             </mat-form-field>
-
+              
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Ім'я</mat-label>
               <input matInput
@@ -90,6 +90,11 @@
   <div class="profile-tabs-block mb-12" fxLayout="row" fxLayoutAlign="center start">
     <mat-card class="profile-mat-tabs">
       <mat-tab-group class="profile-mat-tabs-group" mat-stretch-tabs>
+
+        <mat-tab label="Заклади"
+                 *ngIf="userProfile.role == 'Owner'">
+          <establishments></establishments>
+        </mat-tab>
 
         <mat-tab label="Коментарі"> Коментарі </mat-tab>
       </mat-tab-group>

@@ -7,7 +7,7 @@ namespace EstablishmentService.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<ImageEntity> Images { get; set; }
+        public ImageEntity Preview { get; set; }
         public List<MealEntity> Meals { get; set; }
 
         public int OwnerId { get; set; }

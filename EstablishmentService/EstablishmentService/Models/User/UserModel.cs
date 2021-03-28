@@ -1,4 +1,6 @@
-﻿using EstablishmentService.Models.File;
+﻿using EstablishmentService.Models.Establishment;
+using EstablishmentService.Models.File;
+using System.Collections.Generic;
 
 namespace EstablishmentService.Models.User
 {
@@ -10,6 +12,5 @@ namespace EstablishmentService.Models.User
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public ImageModel Image { get; set; }
-
     }
 }

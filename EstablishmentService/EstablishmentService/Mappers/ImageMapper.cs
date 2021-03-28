@@ -3,7 +3,7 @@ using EstablishmentService.Models.File;
 
 namespace EstablishmentService.Mappers
 {
-    public class ImageMapper
+    public static class ImageMapper
     {
         public static ImageEntity Map(ImageModel model)
         {

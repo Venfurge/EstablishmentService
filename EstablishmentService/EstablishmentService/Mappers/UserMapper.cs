@@ -1,5 +1,6 @@
 ﻿using EstablishmentService.Entities;
 using EstablishmentService.Models.User;
+using System.Linq;
 
 namespace EstablishmentService.Mappers
 {

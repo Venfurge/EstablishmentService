@@ -1,0 +1,37 @@
+<div class="mt-12" fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="establishment-container" fxLayout="column" fxLayoutAlign="start stretch"
+       *ngFor="let item of establishments">
+
+    <div class="w-100-p">
+      <div class="establishment-img" *ngIf="item.preview" [style.background]="'url('+ item.preview.link +')'"></div>
+    </div>
+
+    <div class="mx-20" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="12px"
+         fxLayout.lt-md="column">
+      <div class="mt-8 mb-12" fxFlex fxLayout="column">
+        <div class="establishment-name ellipsis">{{item.name}}</div>
+        <div class="establishment-description ellipsis">{{item.description}}</div>
+      </div>
+
+      <div class="mt-8 mb-12" fxLayoutGap="12px" fxLayout="row" fxLayoutAlign="center center"
+           fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+        <button mat-raised-button
+                color="primary"
+                type="submit">
+          Меню
+        </button>
+        <button mat-raised-button
+                color="primary"
+                type="submit">
+          Працівники
+        </button>
+        <button mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="changeEstablishment(item)">
+          Редагувати
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+@import 'src/app.theme.scss';
+
+.establishment-container {
+  border: 1px solid #c5c5c5;
+  border-radius: 25px;
+
+  .establishment-img {
+    height: 200px;
+    border-radius: 25px;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+    @include media-breakpoint('xs') {
+      height: 150px;
+    }
+
+    @include media-breakpoint('gt-xs') {
+      height: 200px;
+    }
+
+    @include media-breakpoint('gt-md') {
+      background-repeat: repeat !important;
+      background-position: unset !important;
+    }
+  }
+
+  .establishment-name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .establishment-description {
+    font-weight: lighter;
+  }
+
+  .ellipsis {
+    white-space: break-spaces;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}

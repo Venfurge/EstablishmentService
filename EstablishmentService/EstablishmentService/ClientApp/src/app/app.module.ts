@@ -1,4 +1,4 @@
-  import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -27,6 +27,8 @@ import { ProfileService } from './services/profile.service';
 import { RegisterService } from './services/register.service';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutService } from './services/layout.service';
+import { APIEstablishmentService } from './services/api/api-establishment.service';
+import { EstablishmentService } from './services/establishment.service';
 
 const routes: Routes = [
   {
@@ -67,10 +69,12 @@ const routes: Routes = [
     APIAuthService,
     APIProfileService,
     APIRegisterService,
+    APIEstablishmentService,
 
     AuthService,
     ProfileService,
     RegisterService,
+    EstablishmentService,
   ],
   bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EstablishmentService.Models.User
 {
-    public class EditUserImageRequest
+    public class EditImageRequest
     {
         [Required]
         public IFormFile Image { get; set; }

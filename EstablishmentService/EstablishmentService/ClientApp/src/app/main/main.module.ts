@@ -24,6 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ChangeUserPasswordComponent } from './profile/change-user-password/change-user-password.component';
 import { DragAndDropFileModule } from '../shared/drag-and-drop-file/drag-and-drop-file.module';
 import { ChangeProfileImageComponent } from './profile/change-profile-image/change-profile-image.component';
+import { EstablishmentsComponent } from './profile/owner/establishments/establishments.component';
+import { EditEstablishmentComponent } from './profile/owner/establishments/edit-establishment/edit-establishment.component';
 
 const routes: Routes = [
   {
@@ -56,11 +58,15 @@ const routes: Routes = [
     ProfileComponent,
     ChangeUserPasswordComponent,
     ChangeProfileImageComponent,
+    EstablishmentsComponent,
+    EditEstablishmentComponent,
   ],
   entryComponents: [
     MainPageComponent,
     ChangeUserPasswordComponent,
     ChangeProfileImageComponent,
+    EstablishmentsComponent,
+    EditEstablishmentComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
