@@ -89,6 +89,7 @@ namespace EstablishmentService.Controllers
         {
             return await ExecuteWithOkResponse(async () => await _establishmentsService.DeleteEstablishmentImage(id));
         }
+
         #endregion
     }
 }

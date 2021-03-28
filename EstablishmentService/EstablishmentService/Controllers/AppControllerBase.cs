@@ -61,5 +61,13 @@ namespace EstablishmentService.Controllers
                 return 0;
             }
         }
+        protected void ValidatePaging(ref int pn, ref int ps)
+        {
+            if (pn < 0)
+                pn = 0;
+
+            if (ps < 1)
+                ps = 1;
+        }
     }
 }

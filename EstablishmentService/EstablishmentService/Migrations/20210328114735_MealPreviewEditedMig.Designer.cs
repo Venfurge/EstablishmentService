@@ -4,14 +4,16 @@ using EstablishmentService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EstablishmentService.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210328114735_MealPreviewEditedMig")]
+    partial class MealPreviewEditedMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,7 +124,7 @@ namespace EstablishmentService.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EstablishmentId")
+                    b.Property<int?>("EstablishmentEntityId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -136,7 +138,7 @@ namespace EstablishmentService.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EstablishmentId");
+                    b.HasIndex("EstablishmentEntityId");
 
                     b.ToTable("Meals");
                 });
@@ -209,11 +211,9 @@ namespace EstablishmentService.Migrations
 
             modelBuilder.Entity("EstablishmentService.Entities.MealEntity", b =>
                 {
-                    b.HasOne("EstablishmentService.Entities.EstablishmentEntity", "Establishment")
+                    b.HasOne("EstablishmentService.Entities.EstablishmentEntity", null)
                         .WithMany("Meals")
-                        .HasForeignKey("EstablishmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EstablishmentEntityId");
                 });
 #pragma warning restore 612, 618
         }
