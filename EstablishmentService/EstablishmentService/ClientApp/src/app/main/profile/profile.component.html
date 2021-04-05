@@ -89,11 +89,19 @@
 
   <div class="profile-tabs-block mb-12" fxLayout="row" fxLayoutAlign="center start">
     <mat-card class="profile-mat-tabs">
-      <mat-tab-group class="profile-mat-tabs-group" mat-stretch-tabs>
+      <mat-tab-group [selectedIndex]="selectedTabIndex"
+                     (selectedIndexChange)="onTabChanged($event)"
+                     class="profile-mat-tabs-group"
+                     mat-stretch-tabs>
 
         <mat-tab label="Заклади"
                  *ngIf="userProfile.role == 'Owner'">
           <establishments></establishments>
+        </mat-tab>
+
+        <mat-tab label="Страви"
+                 *ngIf="userProfile.role == 'Owner' && mealTabIndex != null">
+          <meals></meals>
         </mat-tab>
 
         <mat-tab label="Коментарі"> Коментарі </mat-tab>

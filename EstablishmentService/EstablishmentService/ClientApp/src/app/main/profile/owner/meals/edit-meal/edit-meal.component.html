@@ -1,0 +1,122 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="dialog-width">
+  <mat-toolbar color="primary" class="navigation-text-color">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <div>Фото закладу</div>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div fxLayout="column" fxLayoutAlign="center stretch"
+       class="p-12">
+
+    <div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="1 1 50" fxFlex.lt-lg="1 1 auto"
+         fxLayout.xs="column" fxLayoutAlign.xs="start stretch"
+         class="dnd-container mt-4 mb-8"
+         *ngIf="!meal.preview && !file">
+      <drag-and-drop-file (fileDropped)="filesUploaded($event)"
+                          (fileOver)="isFileOver = $event"
+                          accept="image/*"
+                          class="w-100-p h-100-p">
+        <div class="dnd-file-upload w-100-p h-100-p"
+             [class.dnd-file-over]="isFileOver"
+             fxLayout="column" fxLayoutAlign="center center">
+
+          <div class="dnd-file-icon">
+            <mat-icon>cloud_upload</mat-icon>
+          </div>
+          <div class="dnd-upload-text mt-8"
+               *ngIf="!isFileOver">
+            Завантажте файл
+          </div>
+
+        </div>
+      </drag-and-drop-file>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="mb-8" *ngIf="meal.preview">
+      <img class="profile-img" src="{{meal.preview.link}}" />
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="h-200" *ngIf="isChanged">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+    <form fxLayout="column" fxLayoutAlign="start stretch"
+          [formGroup]="form"
+          (ngSubmit)="editMeal()">
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px"
+           fxLayout.xs="column" fxLayoutAlign.xs="start stretch" fxLayoutGap.xs="4px">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Назва</mat-label>
+          <input matInput
+                 placeholder="Назва"
+                 formControlName="name">
+
+          <mat-error *ngIf="form.controls['name'].hasError('required')">Введіть назву</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Опис</mat-label>
+          <input matInput
+                 placeholder="Опис"
+                 formControlName="description">
+
+          <mat-error *ngIf="form.controls['description'].hasError('required')">Введіть опис</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="12px"
+           fxLayout.xs="column" fxLayoutAlign.xs="start stretch" fxLayoutGap.xs="4px">
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Вага</mat-label>
+          <input matInput type="number"
+                 placeholder="00.00"
+                 formControlName="weight">
+
+          <mat-error *ngIf="form.controls['weight'].hasError('required')">Введіть вагу</mat-error>
+          <mat-error *ngIf="form.controls['weight'].hasError('pattern')">Введіть ціле число</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label>Ціна</mat-label>
+          <input matInput type="number"
+                 placeholder="00.00"
+                 formControlName="price">
+
+          <mat-error *ngIf="form.controls['price'].hasError('required')">Введіть ціну</mat-error>
+          <mat-error *ngIf="form.controls['price'].hasError('pattern')">Введіть число</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="0px"
+           fxLayout.xs="column" fxLayoutAlign.xs="start stretch" fxLayoutGap.xs="8px">
+
+        <button mat-raised-button color="primary" class="navigation-text-color"
+                *ngIf="meal.preview"
+                (click)="deletePhoto()">
+          Видалити фото
+        </button>
+
+        <div *ngIf="!meal.preview"></div>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px"
+             fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+          <button mat-raised-button color="primary" class="navigation-text-color"
+                  type="submit">
+            Зберегти
+          </button>
+
+          <button mat-button type="button"
+                  (click)="close()">
+            Відмінити
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+

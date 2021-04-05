@@ -17,7 +17,8 @@
            fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
         <button mat-raised-button
                 color="primary"
-                type="submit">
+                type="submit"
+                (click)="openMenu(item.id)">
           Меню
         </button>
         <button mat-raised-button

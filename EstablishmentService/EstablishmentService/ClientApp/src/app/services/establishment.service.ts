@@ -49,8 +49,8 @@ export class EstablishmentService {
     let response = await this._apiService.editEstablishment(request);
 
     if (response.success) {
-      this.getEstablishments();
       this.onEstablishmentChanged.next(response.model);
+      this.getEstablishments();
       this._dialogService.showSnackBar('Успішно змінено!');
       return;
     }
@@ -67,8 +67,8 @@ export class EstablishmentService {
     let response = await this._apiService.editEstablishmentImage(request);
 
     if (response.success) {
-      this.getEstablishments();
       this.onEstablishmentChanged.next(response.model);
+      this.getEstablishments();
       this.onChangeEstablishmentImage.next(false);
       this._dialogService.showSnackBar('Успішно змінено!');
       return response;
@@ -90,8 +90,8 @@ export class EstablishmentService {
     let response = await this._apiService.deleteEstablishmentImage(request);
 
     if (response.success) {
-      this.getEstablishments();
       this.onEstablishmentChanged.next(response.model);
+      this.getEstablishments();
       this._dialogService.showSnackBar('Успішно видалено!')
     }
 

@@ -49,10 +49,14 @@
     <None Remove="ClientApp\src\app\models\id-model-request.model.ts" />
     <None Remove="ClientApp\src\app\models\image\image.model.ts" />
     <None Remove="ClientApp\src\app\models\layout\navigation-link.model.ts" />
+    <None Remove="ClientApp\src\app\models\meal\edit-meal-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\meal\get-meals-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\meal\meal.model.ts" />
     <None Remove="ClientApp\src\app\models\model-response.model.ts" />
     <None Remove="ClientApp\src\app\models\user\add-user.model.ts" />
     <None Remove="ClientApp\src\app\models\user\change-user-password-request.model.ts" />
     <None Remove="ClientApp\src\app\models\user\edit-user-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\user\paging-list.model.ts" />
     <None Remove="ClientApp\src\app\models\user\user.model.ts" />
   </ItemGroup>
 
@@ -70,10 +74,14 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\id-model-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\image\image.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\layout\navigation-link.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\meal\edit-meal-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\meal\get-meals-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\meal\meal.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\model-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user\add-user.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user\change-user-password-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user\edit-user-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\paging-list.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user\user.model.ts" />
   </ItemGroup>
 

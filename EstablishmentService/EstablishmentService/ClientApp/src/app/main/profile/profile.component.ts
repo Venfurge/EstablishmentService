@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { EditUserRequest } from '../../models/user/edit-user-request.model';
 import { UserModel } from '../../models/user/user.model';
 import { DialogService } from '../../services/dialog.service';
+import { MealsTabService } from '../../services/meals-tab.service';
 import { ProfileService } from '../../services/profile.service';
 import { ChangeProfileImageComponent } from './change-profile-image/change-profile-image.component';
 import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
@@ -20,9 +21,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   userProfile: UserModel;
+  mealTabIndex: number;
+  selectedTabIndex: number = 0;
+  selectedTabEventIndex: number = 0;
 
   isLoginValid: boolean = true;
-
+  
   private _unsubscribe: Subject<any>;
 
   constructor(
@@ -30,6 +34,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private _builder: FormBuilder,
     private _dialogService: DialogService,
     private _profileService: ProfileService,
+    private _mealTabService: MealsTabService,
     private _router: Router,
   ) {
     this._unsubscribe = new Subject<any>();
@@ -61,6 +66,25 @@ export class ProfileComponent implements OnInit, OnDestroy {
           }
         }
       });
+
+    this._mealTabService.onMealTabIndexChanged
+      .pipe(takeUntil(this._unsubscribe))
+      .subscribe(index => {
+        this.mealTabIndex = index;
+
+        if (index == null) {
+          this.selectedTabIndex = this.selectedTabEventIndex;
+          return;
+        }
+
+        this.selectedTabIndex = 1;
+      });
+  }
+
+  onTabChanged($event) {
+    this.selectedTabEventIndex = $event;
+    if (this.selectedTabIndex != $event)
+      this._mealTabService.onEditMealTabIndex.next(null);
   }
 
   createForm() {

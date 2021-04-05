@@ -63,7 +63,7 @@ export class ProfileService {
     let response = await this._apiService.editProfile(request);
 
     if (response.success) {
-      this.onUserChanged.next(response.model);
+      this.getProfile();
       this.onChangeLoginFailed.next(false);
       this._dialogService.showSnackBar('Профіль успішно змінено!');
       return;

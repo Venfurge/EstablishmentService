@@ -26,6 +26,14 @@ import { DragAndDropFileModule } from '../shared/drag-and-drop-file/drag-and-dro
 import { ChangeProfileImageComponent } from './profile/change-profile-image/change-profile-image.component';
 import { EstablishmentsComponent } from './profile/owner/establishments/establishments.component';
 import { EditEstablishmentComponent } from './profile/owner/establishments/edit-establishment/edit-establishment.component';
+import { MealsComponent } from './profile/owner/meals/meals.component';
+import { MealsListComponent } from './profile/owner/meals/meals-list/meals-list.component';
+import { MealsSearchComponent } from './profile/owner/meals/meals-search/meals-search.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { EditMealComponent } from './profile/owner/meals/edit-meal/edit-meal.component';
+import { AddMealComponent } from './profile/owner/meals/add-meal/add-meal.component';
 
 const routes: Routes = [
   {
@@ -60,6 +68,11 @@ const routes: Routes = [
     ChangeProfileImageComponent,
     EstablishmentsComponent,
     EditEstablishmentComponent,
+    MealsComponent,
+    MealsListComponent,
+    MealsSearchComponent,
+    EditMealComponent,
+    AddMealComponent,
   ],
   entryComponents: [
     MainPageComponent,
@@ -67,6 +80,11 @@ const routes: Routes = [
     ChangeProfileImageComponent,
     EstablishmentsComponent,
     EditEstablishmentComponent,
+    MealsComponent,
+    MealsListComponent,
+    MealsSearchComponent,
+    EditMealComponent,
+    AddMealComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -89,6 +107,9 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
 })
 export class MainModule { }

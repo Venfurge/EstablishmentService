@@ -212,11 +212,16 @@ namespace EstablishmentService.Services
             if (entity == null)
                 return;
 
-            //Remove files from server
-            await _fileService.DeleteFile(entity.Preview.Name);
+            //Check if image exist
+            if (entity.Preview != null)
+            {
 
-            //Remove image from DB
-            _db.Images.Remove(entity.Preview);
+                //Remove files from server
+                await _fileService.DeleteFile(entity.Preview.Name);
+
+                //Remove image from DB
+                _db.Images.Remove(entity.Preview);
+            }
 
             //Remove and save to DB
             _db.Meals.Remove(entity);

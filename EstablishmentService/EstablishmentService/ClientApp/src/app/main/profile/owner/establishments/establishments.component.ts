@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EstablishmentModel } from '../../../../models/establishment/establishment.model';
 import { EstablishmentService } from '../../../../services/establishment.service';
+import { MealsTabService } from '../../../../services/meals-tab.service';
 import { EditEstablishmentComponent } from './edit-establishment/edit-establishment.component';
 
 @Component({
@@ -19,6 +20,7 @@ export class EstablishmentsComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialog: MatDialog,
+    private _mealTabService: MealsTabService,
     private _establishmentsService: EstablishmentService,
   ) {
     this._unsubscribe = new Subject<any>();
@@ -42,6 +44,10 @@ export class EstablishmentsComponent implements OnInit, OnDestroy {
         establishment: establishment,
       },
     });
+  }
+
+  openMenu(establishmentId: number) {
+    this._mealTabService.onEditMealTabIndex.next(establishmentId);
   }
 
   ngOnDestroy(): void {

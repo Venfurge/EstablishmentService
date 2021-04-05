@@ -64,7 +64,7 @@ namespace EstablishmentService.Controllers
         /// </summary>
         /// <param name="id">Establishment Id</param>
         /// <param name="model">Add Meal Model</param>
-        /// <response code="200">Id</response>
+        /// <response code="200">Meal Model</response>
         /// <response code="400">Bad Model</response>
         /// <response code="404">Meal not found</response>
         [HttpPost]
@@ -90,7 +90,7 @@ namespace EstablishmentService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<MealModel>> EditProduct(int id, [FromBody] EditMealRequest model)
+        public async Task<ActionResult<MealModel>> EditMeal(int id, [FromBody] EditMealRequest model)
         {
             return await ExecuteWithOkResponse(async () => await _mealService.EditMeal(id, model));
         }

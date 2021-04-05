@@ -29,6 +29,9 @@ import { HeaderComponent } from './layout/header/header.component';
 import { LayoutService } from './services/layout.service';
 import { APIEstablishmentService } from './services/api/api-establishment.service';
 import { EstablishmentService } from './services/establishment.service';
+import { APIMealService } from './services/api/api-meal.service';
+import { MealService } from './services/meal.service';
+import { MealsTabService } from './services/meals-tab.service';
 
 const routes: Routes = [
   {
@@ -70,11 +73,14 @@ const routes: Routes = [
     APIProfileService,
     APIRegisterService,
     APIEstablishmentService,
+    APIMealService,
 
     AuthService,
     ProfileService,
     RegisterService,
     EstablishmentService,
+    MealService,
+    MealsTabService,
   ],
   bootstrap: [AppComponent]
 })
