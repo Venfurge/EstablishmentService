@@ -1,5 +1,7 @@
 <div class="mt-12" fxLayout="column" fxLayoutAlign="start stretch">
-  <div class="establishment-container" fxLayout="column" fxLayoutAlign="start stretch"
+  <span class="establishment-type-label">Власні заклади</span>
+
+  <div class="establishment-container mt-12" fxLayout="column" fxLayoutAlign="start stretch"
        *ngFor="let item of establishments">
 
     <div class="w-100-p">
@@ -17,18 +19,16 @@
            fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
         <button mat-raised-button
                 color="primary"
-                type="submit"
                 (click)="openMenu(item.id)">
           Меню
         </button>
         <button mat-raised-button
                 color="primary"
-                type="submit">
+                (click)="editWorkers(item.id)">
           Працівники
         </button>
         <button mat-raised-button
                 color="primary"
-                type="submit"
                 (click)="changeEstablishment(item)">
           Редагувати
         </button>

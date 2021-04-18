@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { NavigationLink } from '../../models/layout/navigation-link.model';
 import { takeUntil } from 'rxjs/operators';
 import { ProfileService } from '../../services/profile.service';
+import { UserModel } from '../../models/user/user.model';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  public user: UserModel;
   public isDeviceSm: boolean;
   public isDeviceXs: boolean;
   public isAuthorized: boolean;
@@ -54,7 +56,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this._profileService.onUserChanged
       .pipe(takeUntil(this._unsubscribe))
       .subscribe(user => {
-        if (user != null)
+        this.user = user;
+
+        if (user != null) 
           this.isAuthorized = true;
         else
           this.isAuthorized = false;

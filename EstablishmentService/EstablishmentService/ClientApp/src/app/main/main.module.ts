@@ -34,6 +34,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { EditMealComponent } from './profile/owner/meals/edit-meal/edit-meal.component';
 import { AddMealComponent } from './profile/owner/meals/add-meal/add-meal.component';
+import { WorkerInvitationComponent } from './profile/owner/workers/worker-invitation/worker-invitation.component';
+import { WorkersComponent } from './profile/owner/workers/workers.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import { InviteAcceptComponent } from './invite-accept/invite-accept.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { WorkersListComponent } from './profile/owner/workers/workers-list/workers-list.component';
+import { WorkerSearchComponent } from './profile/owner/workers/worker-search/worker-search.component';
+import { WorkEstablishmentsComponent } from './profile/work-establishments/work-establishments.component';
 
 const routes: Routes = [
   {
@@ -47,6 +56,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'invite-accept/:token',
+    component: InviteAcceptComponent,
   },
   {
     path: '',
@@ -73,6 +86,12 @@ const routes: Routes = [
     MealsSearchComponent,
     EditMealComponent,
     AddMealComponent,
+    WorkersComponent,
+    WorkerInvitationComponent,
+    InviteAcceptComponent,
+    WorkersListComponent,
+    WorkerSearchComponent,
+    WorkEstablishmentsComponent,
   ],
   entryComponents: [
     MainPageComponent,
@@ -85,6 +104,11 @@ const routes: Routes = [
     MealsSearchComponent,
     EditMealComponent,
     AddMealComponent,
+    WorkersComponent,
+    WorkerInvitationComponent,
+    WorkersListComponent,
+    WorkerSearchComponent,
+    WorkEstablishmentsComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -110,6 +134,10 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    ClipboardModule,
+    MatExpansionModule,
+
+    QRCodeModule
   ],
 })
 export class MainModule { }

@@ -1,5 +1,9 @@
 @import 'src/app.theme.scss';
 
+.dialog-width{
+  max-height: 80vh;
+}
+
 .dnd-container {
   height: 200px;
 

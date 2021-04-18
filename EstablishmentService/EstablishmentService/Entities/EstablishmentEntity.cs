@@ -9,6 +9,7 @@ namespace EstablishmentService.Entities
         public string Description { get; set; }
         public ImageEntity Preview { get; set; }
         public List<MealEntity> Meals { get; set; }
+        public List<EstablishmentUserEntity> Workers { get; set; }
 
         public int OwnerId { get; set; }
         public virtual UserEntity Owner { get; set; }

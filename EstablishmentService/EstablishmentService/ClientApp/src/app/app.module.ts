@@ -32,6 +32,10 @@ import { EstablishmentService } from './services/establishment.service';
 import { APIMealService } from './services/api/api-meal.service';
 import { MealService } from './services/meal.service';
 import { MealsTabService } from './services/meals-tab.service';
+import { APIEstablishmentWorkerService } from './services/api/api-establishment-worker.service';
+import { EstablishmentWorkerService } from './services/establishment-worker.service';
+import { APIWorkEstablishmentService } from './services/api/api-work-establishment.service';
+import { WorkEstablishmentService } from './services/work-establishment.service';
 
 const routes: Routes = [
   {
@@ -74,6 +78,8 @@ const routes: Routes = [
     APIRegisterService,
     APIEstablishmentService,
     APIMealService,
+    APIEstablishmentWorkerService,
+    APIWorkEstablishmentService,
 
     AuthService,
     ProfileService,
@@ -81,6 +87,8 @@ const routes: Routes = [
     EstablishmentService,
     MealService,
     MealsTabService,
+    EstablishmentWorkerService,
+    WorkEstablishmentService,
   ],
   bootstrap: [AppComponent]
 })

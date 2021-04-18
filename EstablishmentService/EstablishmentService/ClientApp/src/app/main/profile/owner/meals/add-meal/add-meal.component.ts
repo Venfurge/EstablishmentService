@@ -128,6 +128,7 @@ export class AddMealComponent implements OnInit, OnDestroy {
     let request = new EditMealRequestModel(this.form.value);
 
     this._mealService.onAddMeal.next({ id: this.mealTabIndex, model: request });
+    this.close();
   }
 
   deletePhoto(): void {

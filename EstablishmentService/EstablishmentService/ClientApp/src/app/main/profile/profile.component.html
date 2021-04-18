@@ -6,7 +6,7 @@
 
       <div>
         <div *ngIf="!userProfile.image">
-          <img class="profile-img" src="/images/empty-avatar.jpg"               
+          <img class="profile-img" src="/images/empty-avatar.jpg"
                (click)="changeAvatar()" />
         </div>
 
@@ -35,7 +35,7 @@
               <mat-error *ngIf="form.controls['login'].hasError('required')">Введіть логін</mat-error>
               <mat-error *ngIf="form.controls['login'].hasError('loginValid')">Логін вже зайнято</mat-error>
             </mat-form-field>
-              
+
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Ім'я</mat-label>
               <input matInput
@@ -95,8 +95,10 @@
                      mat-stretch-tabs>
 
         <mat-tab label="Заклади"
-                 *ngIf="userProfile.role == 'Owner'">
-          <establishments></establishments>
+                 *ngIf="userProfile.role == 'Owner' || userProfile.role == 'Worker'">
+          <establishments *ngIf="userProfile.role == 'Owner'"></establishments>
+
+          <work-establishments></work-establishments>
         </mat-tab>
 
         <mat-tab label="Страви"

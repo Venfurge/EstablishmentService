@@ -167,6 +167,9 @@ namespace EstablishmentService
             services.AddTransient<ProfileService>();
             services.AddTransient<EstablishmentsService>();
             services.AddTransient<MealService>();
+            services.AddTransient<EstablishmentInvitationService>();
+            services.AddTransient<EstablishmentWorkerService>();
+            services.AddTransient<WorkEstablishmentsService>();
         }
     }
 }

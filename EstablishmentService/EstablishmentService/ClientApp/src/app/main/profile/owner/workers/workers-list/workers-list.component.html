@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="list-container">
+  <div *ngIf="workerList.length">
+    <mat-accordion *ngFor="let worker of workerList">
+      <mat-expansion-panel class="mat-elevation-z0" hideToggle>
+        <mat-expansion-panel-header class="px-12">
+          <mat-panel-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+
+            <img *ngIf="worker.image" class="profile-img" src="{{worker.image.link}}" />
+
+            <img *ngIf="!worker.image" class="profile-img" src="/images/empty-avatar.jpg" />
+
+            <span>{{worker.login}}</span>
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div fxLayout="row" fxLayout.xs="column"
+             fxLayoutAlign="space-between stretch"
+             fxLayoutAlign.xs="start stretch"
+             fxLayoutGap.xs="12px">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutGap="12px">
+            <span *ngIf="worker.firstName">First Name: {{worker.firstName}}</span>
+            <span *ngIf="worker.secondName">Second Name: {{worker.secondName}}</span>
+            <span *ngIf="!worker.firstName">First Name: 'Не вказано'</span>
+            <span *ngIf="!worker.secondName">Second Name: 'Не вказано'</span>
+          </div>
+
+          <button class="remove-btn"
+                  fxLayoutAlign="center center"
+                  mat-raised-button
+                  color="primary"
+                  (click)="removeWorker(worker.id)">
+            Видалити
+          </button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div *ngIf="!workerList.length" fxLayout="row" fxLayoutAlign="center stretch">Працівників не знайдено</div>
+</div>

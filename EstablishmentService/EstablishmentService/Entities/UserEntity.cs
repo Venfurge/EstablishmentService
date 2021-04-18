@@ -14,5 +14,6 @@ namespace EstablishmentService.Entities
         public ImageEntity Image { get; set; }
         public List<CommentEntity> Comments { get; set; }
         public List<EstablishmentEntity> Establishments { get; set; }
+        public List<EstablishmentUserEntity> Workers { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace EstablishmentService
         public DbSet<MealEntity> Meals { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
         public DbSet<ImageEntity> Images { get; set; }
+        public DbSet<EstablishmentUserEntity> EstablishmentUserEntities { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
@@ -19,7 +20,8 @@ namespace EstablishmentService
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<EstablishmentUserEntity>()
+                .HasKey(v => new { v.UserId, v.EstablishmentId });
         }
     }
 }

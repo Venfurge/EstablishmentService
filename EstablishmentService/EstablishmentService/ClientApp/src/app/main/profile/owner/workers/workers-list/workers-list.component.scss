@@ -1,0 +1,17 @@
+@import 'src/app.theme.scss';
+
+.list-container {
+  height: 200px;
+  overflow: auto;
+
+  .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .remove-btn {
+    font-size: 12px;
+    height: 30px;
+  }
+}

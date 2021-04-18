@@ -73,6 +73,21 @@ namespace EstablishmentService.Migrations
                     b.ToTable("Establishments");
                 });
 
+            modelBuilder.Entity("EstablishmentService.Entities.EstablishmentUserEntity", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EstablishmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "EstablishmentId");
+
+                    b.HasIndex("EstablishmentId");
+
+                    b.ToTable("EstablishmentUserEntities");
+                });
+
             modelBuilder.Entity("EstablishmentService.Entities.ImageEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -188,6 +203,21 @@ namespace EstablishmentService.Migrations
                     b.HasOne("EstablishmentService.Entities.UserEntity", "Owner")
                         .WithMany("Establishments")
                         .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EstablishmentService.Entities.EstablishmentUserEntity", b =>
+                {
+                    b.HasOne("EstablishmentService.Entities.EstablishmentEntity", "Establishment")
+                        .WithMany("Workers")
+                        .HasForeignKey("EstablishmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EstablishmentService.Entities.UserEntity", "User")
+                        .WithMany("Workers")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

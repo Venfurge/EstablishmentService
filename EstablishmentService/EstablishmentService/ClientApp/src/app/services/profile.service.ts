@@ -35,7 +35,7 @@ export class ProfileService {
     this.onChangePassword = new Subject();
     this.onLogout = new Subject();
 
-    this.onUserChanged = new BehaviorSubject(new UserModel());
+    this.onUserChanged = new BehaviorSubject(null);
     this.onChangePasswordFailed = new BehaviorSubject(null);
     this.onChangeProfileImage = new BehaviorSubject(false);
     this.onChangeLoginFailed = new BehaviorSubject(null);

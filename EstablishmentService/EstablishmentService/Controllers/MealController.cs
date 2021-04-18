@@ -11,7 +11,6 @@ using static EstablishmentService.Helpers.Roles;
 namespace EstablishmentService.Controllers
 {
     [ApiController]
-    [Authorize(Roles = Owner)]
     [Route("api/meals")]
     public class MealController : AppControllerBase
     {
@@ -69,6 +68,7 @@ namespace EstablishmentService.Controllers
         /// <response code="404">Meal not found</response>
         [HttpPost]
         [Route("{id:int}")]
+        [Authorize(Roles = Owner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -87,6 +87,7 @@ namespace EstablishmentService.Controllers
         /// <response code="404">Meal not found</response>
         [HttpPut]
         [Route("{id:int}")]
+        [Authorize(Roles = Owner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -103,6 +104,7 @@ namespace EstablishmentService.Controllers
         /// <response code="404">Meal or Meal Image not found</response>
         [HttpPut]
         [Route("{id:int}/edit-image")]
+        [Authorize(Roles = Owner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -119,6 +121,7 @@ namespace EstablishmentService.Controllers
         /// <response code="404">Meal not found</response>
         [HttpPut]
         [Route("{id:int}/delete-image")]
+        [Authorize(Roles = Owner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -134,6 +137,7 @@ namespace EstablishmentService.Controllers
         /// <response code="200">Deleted</response>
         [HttpDelete]
         [Route("{id:int}")]
+        [Authorize(Roles = Owner)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> DeleteMeal(int id)
         {

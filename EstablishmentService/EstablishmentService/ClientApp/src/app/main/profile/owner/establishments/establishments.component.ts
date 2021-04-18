@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { EstablishmentModel } from '../../../../models/establishment/establishment.model';
 import { EstablishmentService } from '../../../../services/establishment.service';
 import { MealsTabService } from '../../../../services/meals-tab.service';
+import { WorkersComponent } from '../workers/workers.component';
 import { EditEstablishmentComponent } from './edit-establishment/edit-establishment.component';
 
 @Component({
@@ -36,6 +37,10 @@ export class EstablishmentsComponent implements OnInit, OnDestroy {
     this._establishmentsService.onGetEstablishments.next(null);
   }
 
+  openMenu(establishmentId: number) {
+    this._mealTabService.onEditMealTabIndex.next(establishmentId);
+  }
+
   changeEstablishment(establishment: EstablishmentModel): void {
     let dialogRef = this.dialog.open(EditEstablishmentComponent, {
       panelClass: 'dialog-container-zero-padding',
@@ -46,8 +51,14 @@ export class EstablishmentsComponent implements OnInit, OnDestroy {
     });
   }
 
-  openMenu(establishmentId: number) {
-    this._mealTabService.onEditMealTabIndex.next(establishmentId);
+  editWorkers(establishmentId: number) {
+    let dialogRef = this.dialog.open(WorkersComponent, {
+      panelClass: 'dialog-container-zero-padding',
+      width: '600px',
+      data: {
+        establishmentId: establishmentId,
+      },
+    });
   }
 
   ngOnDestroy(): void {

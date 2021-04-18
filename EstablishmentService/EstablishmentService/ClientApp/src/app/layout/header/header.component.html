@@ -23,7 +23,8 @@
 
     <div class="mx-24">
       <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
-        <mat-icon class="profile-icon pr-48">account_circle</mat-icon>
+        <mat-icon *ngIf="!user || user && !user.image" class="profile-icon pr-48">account_circle</mat-icon>
+        <img *ngIf="user && user.image" class="profile-img" src="{{user.image.link}}" />
       </button>
       <mat-menu #beforeMenu="matMenu" xPosition="before" class="mt-8 w-160">
         <a class="profile-links pl-32"

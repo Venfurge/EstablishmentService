@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="h-400">
+  <mat-toolbar color="primary" class="navigation-text-color">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <div>Працівники</div>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <worker-search [establishmentId]="establishmentId"></worker-search>
+
+  <workers-list [establishmentId]="establishmentId" fxFlex></workers-list>
+
+  <button mat-raised-button
+          color="primary"
+          (click)="addWorker()">
+    Додати нового
+  </button>
+</div>
