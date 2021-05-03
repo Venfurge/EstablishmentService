@@ -40,6 +40,15 @@ export class APIMealService {
   }
 
   // <response code="200">Meal Model</response>
+  // <response code="404">Meal not found</response>
+  @API<ModelResponse<PagingList<MealModel>>>()
+  public async getMealById(request: IdModelRequest<number>): Promise<ModelResponse<MealModel>> {
+    let response = new ModelResponse<MealModel>();
+    response.model = await this._httpClient.get<MealModel>(`api/meals/${request.id}/${request.model}`, { headers: this._headers }).toPromise();
+    return response;
+  }
+
+  // <response code="200">Meal Model</response>
   // <response code="400">Bad Model</response>
   // <response code="404">Meal not found</response>
   @API<ModelResponse<MealModel>>()

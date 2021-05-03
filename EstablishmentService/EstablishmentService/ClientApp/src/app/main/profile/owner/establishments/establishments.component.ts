@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EstablishmentModel } from '../../../../models/establishment/establishment.model';
-import { EstablishmentService } from '../../../../services/establishment.service';
-import { MealsTabService } from '../../../../services/meals-tab.service';
+import { EstablishmentService } from '../../../../services/establishment/establishment.service';
+import { MealsTabService } from '../../../../services/meal/meals-tab.service';
+import { LeaveCommentComponent } from '../../leave-comment/leave-comment.component';
 import { WorkersComponent } from '../workers/workers.component';
 import { EditEstablishmentComponent } from './edit-establishment/edit-establishment.component';
 
@@ -47,6 +48,16 @@ export class EstablishmentsComponent implements OnInit, OnDestroy {
       width: '600px',
       data: {
         establishment: establishment,
+      },
+    });
+  }
+
+  leaveComment(id: number) {
+    let dialogRef = this.dialog.open(LeaveCommentComponent, {
+      panelClass: 'dialog-container-zero-padding',
+      width: '600px',
+      data: {
+        establishmentId: id,
       },
     });
   }

@@ -1,0 +1,45 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="h-100-p">
+  <div *ngIf="mealsList.length" class="list-container" fxFlex>
+    <mat-accordion *ngFor="let meal of mealsList">
+      <mat-expansion-panel class="mat-elevation-z0" hideToggle>
+        <mat-expansion-panel-header class="px-12">
+          <mat-panel-title class="w-100-p mx-0" fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="12px">
+            <span fxFlex class="ellipsis meal-name">{{meal.name}}</span>
+
+            <mat-checkbox color="primary" class="example-margin" [checked]="isChecked(meal.id)" (change)="check($event, meal.id)"></mat-checkbox>
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div fxLayout="row"
+             fxLayoutAlign="space-between stretch">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.xs="start start" fxLayoutGap="12px">
+            <span>Вага: {{meal.weight}} г</span>
+            <span>Ціна: {{meal.price}} грн</span>
+          </div>
+
+          <div *ngIf="meal.preview"
+               id="cstm-tool-tip"
+               class="custom-tool-tip-box"
+               [style.background]="'url('+ meal.preview.link +')'">
+          </div>
+
+          <div *ngIf="!meal.preview"
+               id="cstm-tool-tip"
+               class="custom-tool-tip-box"
+               [style.background]="'url(images/empty-avatar.jpg)'">
+          </div>
+
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div *ngIf="!mealsList.length" fxLayout="row" fxLayoutAlign="center stretch">Страв не знайдено</div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                 [length]="totalCount"
+                 [pageSize]="request.model.ps"
+                 [pageIndex]="request.model.pn">
+  </mat-paginator>
+</div>

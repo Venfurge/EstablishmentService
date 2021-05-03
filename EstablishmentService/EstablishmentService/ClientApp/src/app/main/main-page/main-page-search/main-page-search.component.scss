@@ -1,0 +1,9 @@
+@import 'src/app.theme.scss';
+
+.search-container {
+  width: 66vw;
+
+  @include media-breakpoint('xs') {
+    width: 100%;
+  }
+}

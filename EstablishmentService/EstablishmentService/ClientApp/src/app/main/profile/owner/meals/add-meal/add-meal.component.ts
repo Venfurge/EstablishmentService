@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { EditMealRequestModel } from '../../../../../models/meal/edit-meal-request.model';
 import { MealModel } from '../../../../../models/meal/meal.model';
 import { DialogService } from '../../../../../services/dialog.service';
-import { MealService } from '../../../../../services/meal.service';
+import { MealService } from '../../../../../services/meal/meal.service';
 
 @Component({
     selector: 'add-meal',

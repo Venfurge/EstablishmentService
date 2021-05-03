@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { IdModelRequest } from '../models/id-model-request.model';
-import { EditMealRequestModel } from '../models/meal/edit-meal-request.model';
-import { GetMealsRequestModel } from '../models/meal/get-meals-request.model';
-import { MealModel } from '../models/meal/meal.model';
-import { PagingList } from '../models/paging-list.model';
-import { APIMealService } from './api/api-meal.service';
-import { DialogService } from './dialog.service';
+import { IdModelRequest } from '../../models/id-model-request.model';
+import { EditMealRequestModel } from '../../models/meal/edit-meal-request.model';
+import { GetMealsRequestModel } from '../../models/meal/get-meals-request.model';
+import { MealModel } from '../../models/meal/meal.model';
+import { PagingList } from '../../models/paging-list.model';
+import { APIMealService } from '../api/api-meal.service';
+import { DialogService } from '../dialog.service';
 
 @Injectable()
 export class MealService {
 
   onGetMeals: Subject<IdModelRequest<GetMealsRequestModel>>;
+  onGetMealById: Subject<IdModelRequest<number>>;
   onAddMeal: Subject<IdModelRequest<EditMealRequestModel>>;
   onEditMealsRequest: Subject<IdModelRequest<GetMealsRequestModel>>;
   onEditMeal: Subject<IdModelRequest<EditMealRequestModel>>;
@@ -35,6 +36,7 @@ export class MealService {
     this.request = null;
 
     this.onGetMeals = new Subject();
+    this.onGetMealById = new Subject();
     this.onAddMeal = new Subject();
     this.onEditMealsRequest = new Subject();
     this.onEditMeal = new Subject();
@@ -58,6 +60,7 @@ export class MealService {
       this.getMeals();
     });
 
+    this.onGetMealById.subscribe(request => this.getMealById(request));
     this.onAddMeal.subscribe(request => this.addMeal(request));
     this.onEditMealsRequest.subscribe(request => this.request = request);
     this.onEditMeal.subscribe(request => this.editMeal(request));
@@ -74,6 +77,21 @@ export class MealService {
     if (response.success) {
       this.onMealsChanged.next(response.model);
       return;
+    }
+  }
+
+  private async getMealById(request: IdModelRequest<number>) {
+    let response = await this._apiService.getMealById(request);
+
+    if (response.success) {
+      this.onMealChanged.next(response.model);
+      return;
+    }
+
+    switch (response.status) {
+      case 404:
+        this._dialogService.showSnackBar('Страву не знайдено!');
+        break;
     }
   }
 

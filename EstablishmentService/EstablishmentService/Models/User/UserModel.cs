@@ -1,6 +1,4 @@
-﻿using EstablishmentService.Models.Establishment;
-using EstablishmentService.Models.File;
-using System.Collections.Generic;
+﻿using EstablishmentService.Models.File;
 
 namespace EstablishmentService.Models.User
 {

@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API } from '../../helpers/api-decorator';
-import { EditEstablishmentRequestModel } from '../../models/establishment/edit-establishment-request.model';
-import { EstablishmentModel } from '../../models/establishment/establishment.model';
-import { IdModelRequest } from '../../models/id-model-request.model';
-import { ModelResponse } from '../../models/model-response.model';
-import { HeadersService } from '../headers.service';
+import { API } from '../../../helpers/api-decorator';
+import { EditEstablishmentRequestModel } from '../../../models/establishment/edit-establishment-request.model';
+import { EstablishmentModel } from '../../../models/establishment/establishment.model';
+import { IdModelRequest } from '../../../models/id-model-request.model';
+import { ModelResponse } from '../../../models/model-response.model';
+import { HeadersService } from '../../headers.service';
 
 @Injectable()
 export class APIEstablishmentService {

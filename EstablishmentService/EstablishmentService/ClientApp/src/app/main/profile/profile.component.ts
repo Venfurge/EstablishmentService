@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { EditUserRequest } from '../../models/user/edit-user-request.model';
 import { UserModel } from '../../models/user/user.model';
 import { DialogService } from '../../services/dialog.service';
-import { MealsTabService } from '../../services/meals-tab.service';
+import { MealsTabService } from '../../services/meal/meals-tab.service';
 import { ProfileService } from '../../services/profile.service';
 import { ChangeProfileImageComponent } from './change-profile-image/change-profile-image.component';
 import { ChangeUserPasswordComponent } from './change-user-password/change-user-password.component';
@@ -47,10 +47,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this._profileService.onUserChanged
       .pipe(takeUntil(this._unsubscribe))
       .subscribe(request => {
-        this.userProfile = request;
-
-        if (this.userProfile != null)
+        if (request != null) {
+          this.userProfile = request;
           this.form = this.createForm();
+        }
       });
 
     this._profileService.onChangeLoginFailed
@@ -79,6 +79,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
         this.selectedTabIndex = 1;
       });
+
+    this._profileService.onGetProfile.next(null);
   }
 
   onTabChanged($event) {

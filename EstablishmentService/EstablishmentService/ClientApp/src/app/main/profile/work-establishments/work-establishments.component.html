@@ -18,9 +18,11 @@
       <div class="mt-8 mb-12" fxLayoutGap="12px" fxLayout="row" fxLayoutAlign="center center"
            fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
         <button mat-raised-button
-                color="primary">
+                color="primary"
+                (click)="leaveComment(item.id)">
           Залишити відгук
         </button>
+
         <button mat-raised-button
                 color="primary"
                 (click)="leaveEstablishment(item.id)">

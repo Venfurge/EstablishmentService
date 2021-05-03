@@ -1,0 +1,21 @@
+@import 'src/app.theme.scss';
+
+.meals-container {
+  width: 100% !important;
+  margin-bottom: 12px !important;
+
+  .meal-card {
+    margin-top: 12px !important;
+  }
+}
+
+.meals-not-found-container {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 12px !important;
+}
+
+.loader-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

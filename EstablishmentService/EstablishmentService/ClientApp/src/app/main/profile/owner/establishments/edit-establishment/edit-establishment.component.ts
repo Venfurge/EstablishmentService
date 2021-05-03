@@ -6,9 +6,9 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { EstablishmentModel } from '../../../../../models/establishment/establishment.model';
 import { DialogService } from '../../../../../services/dialog.service';
-import { EstablishmentService } from '../../../../../services/establishment.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditEstablishmentRequestModel } from '../../../../../models/establishment/edit-establishment-request.model';
+import { EstablishmentService } from '../../../../../services/establishment/establishment.service';
 
 @Component({
   selector: 'edit-establishment',

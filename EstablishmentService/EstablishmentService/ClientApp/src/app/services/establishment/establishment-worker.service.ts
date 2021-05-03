@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { UserModel } from '../models/user/user.model';
-import { GetWorkersRequestModel } from '../models/workers/get-workers-request.model';
-import { APIEstablishmentWorkerService } from './api/api-establishment-worker.service';
-import { AuthService } from './auth.service';
-import { DialogService } from './dialog.service';
-import { EstablishmentService } from './establishment.service';
-import { ProfileService } from './profile.service';
+import { UserModel } from '../../models/user/user.model';
+import { GetWorkersRequestModel } from '../../models/workers/get-workers-request.model';
+import { APIEstablishmentWorkerService } from '../api/api-establishment/api-establishment-worker.service';
+import { AuthService } from '../auth.service';
+import { DialogService } from '../dialog.service';
+import { ProfileService } from '../profile.service';
 import { WorkEstablishmentService } from './work-establishment.service';
 
 @Injectable()

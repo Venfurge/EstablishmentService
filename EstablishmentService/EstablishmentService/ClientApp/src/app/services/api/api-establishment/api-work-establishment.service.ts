@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API } from '../../helpers/api-decorator';
-import { EstablishmentModel } from '../../models/establishment/establishment.model';
-import { ModelResponse } from '../../models/model-response.model';
-import { HeadersService } from '../headers.service';
+import { API } from '../../../helpers/api-decorator';
+import { EstablishmentModel } from '../../../models/establishment/establishment.model';
+import { ModelResponse } from '../../../models/model-response.model';
+import { HeadersService } from '../../headers.service';
 
 @Injectable()
 export class APIWorkEstablishmentService {

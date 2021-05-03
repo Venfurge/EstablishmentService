@@ -1,0 +1,32 @@
+<div *ngIf="mealsForComment.length" fxLayout="column" fxLayoutAlign="center center">
+  <form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="leaveComment()">
+    <mat-card class="meal-container" *ngFor="let meal of mealsForComment"
+              fxLayout="column" fxLayoutAlign="start stretch" fxLayouGap="16px">
+      <div *ngIf="!meal.preview" fxLayoutAlign="center start">
+        <img class="meal-img" src="/images/empty-avatar.jpg" />
+      </div>
+
+      <div *ngIf="meal.preview" fxLayoutAlign="center start">
+        <img class="meal-img" src="{{meal.preview.link}}" />
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="start stretch">
+        <div class="meal-name">{{meal.name}}</div>
+        <div class="meal-weight">Вага: {{meal.weight}} г</div>
+        <div class="meal-price">Ціна: {{meal.price}} грн</div>
+
+        <mat-form-field>
+          <mat-label>Коментар</mat-label>
+          <textarea matInput class="comment-input"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <button class="leave-comments-btn"
+            mat-raised-button
+            color="primary"
+            type="submit">
+      Залишити відгук
+    </button>
+  </form>
+</div>

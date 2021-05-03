@@ -1,0 +1,16 @@
+<div fxLayout="column" fxFlex>
+  <div *ngIf="meals.length" class="meals-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="12px" fxLayoutGap.xs="0">
+    <meal-card class="meal-card" *ngFor="let meal of meals" [meal]="meal"></meal-card>
+  </div>
+
+  <div *ngIf="!meals.length" class="meals-not-found-container" fxLayout="row stretch" fxLayoutAlign="center center">
+    Страв не знайдено
+  </div>
+
+  <div *ngIf="meals.length"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       (scrolled)="onScroll()">
+
+  </div>
+</div>

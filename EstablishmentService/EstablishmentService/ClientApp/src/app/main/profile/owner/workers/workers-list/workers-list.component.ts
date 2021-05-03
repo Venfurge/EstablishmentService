@@ -4,7 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { UserModel } from '../../../../../models/user/user.model';
 import { GetWorkersRequestModel } from '../../../../../models/workers/get-workers-request.model';
 import { DialogService } from '../../../../../services/dialog.service';
-import { EstablishmentWorkerService } from '../../../../../services/establishment-worker.service';
+import { EstablishmentWorkerService } from '../../../../../services/establishment/establishment-worker.service';
 
 @Component({
   selector: 'workers-list',

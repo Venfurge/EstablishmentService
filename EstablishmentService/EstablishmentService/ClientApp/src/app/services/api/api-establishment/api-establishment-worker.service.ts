@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API } from '../../helpers/api-decorator';
-import { ApiResponse } from '../../models/api-response.model';
-import { InviteAcceptModel } from '../../models/invite/invite-accept.model';
-import { ModelResponse } from '../../models/model-response.model';
-import { SingleValueModel } from '../../models/single-value.model';
-import { UserModel } from '../../models/user/user.model';
-import { GetWorkersRequestModel } from '../../models/workers/get-workers-request.model';
-import { WorkerRemovedModel } from '../../models/workers/worker-removed.model';
-import { HeadersService } from '../headers.service';
+import { API } from '../../../helpers/api-decorator';
+import { ApiResponse } from '../../../models/api-response.model';
+import { InviteAcceptModel } from '../../../models/invite/invite-accept.model';
+import { ModelResponse } from '../../../models/model-response.model';
+import { SingleValueModel } from '../../../models/single-value.model';
+import { UserModel } from '../../../models/user/user.model';
+import { GetWorkersRequestModel } from '../../../models/workers/get-workers-request.model';
+import { WorkerRemovedModel } from '../../../models/workers/worker-removed.model';
+import { HeadersService } from '../../headers.service';
 
 @Injectable()
 export class APIEstablishmentWorkerService {

@@ -4,8 +4,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IdModelRequest } from '../../../../../models/id-model-request.model';
 import { GetMealsRequestModel } from '../../../../../models/meal/get-meals-request.model';
-import { MealService } from '../../../../../services/meal.service';
-import { MealsTabService } from '../../../../../services/meals-tab.service';
+import { MealService } from '../../../../../services/meal/meal.service';
+import { MealsTabService } from '../../../../../services/meal/meals-tab.service';
 
 @Component({
   selector: 'meals-search',

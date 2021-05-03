@@ -59,6 +59,22 @@ namespace EstablishmentService.Controllers
         }
 
         /// <summary>
+        /// Get Meal by Id
+        /// </summary>
+        /// <param name="establishmentId">Establishment Id</param>
+        /// <param name="mealId">Meal id</param>
+        /// <response code="200">Meal model</response>
+        /// <response code="404">Meal not found</response>
+        [HttpGet]
+        [Route("{establishmentId:int}/{mealId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<MealModel>> GetMealById(int establishmentId, int mealId)
+        {
+            return await ExecuteWithOkResponse(async () => await _mealService.GetMealById(mealId));
+        }
+
+        /// <summary>
         /// Add Meal
         /// </summary>
         /// <param name="id">Establishment Id</param>

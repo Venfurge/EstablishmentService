@@ -20,15 +20,8 @@
 }
 
 .custom-tool-tip-box {
-  position: absolute;
-  margin: auto;
-  top: 15%;
-  left: 0;
-  right: 0;
-  visibility: hidden;
   width: 200px;
   height: 200px;
-  z-index: 1000;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: 200px !important;
@@ -44,9 +37,9 @@
 
   @include media-breakpoint('gt-md') {
     top: 8%;
-    background-size: 300px !important;
-    width: 300px;
-    height: 300px;
+    background-size: 250px !important;
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -59,10 +52,6 @@
   border-radius: 3px;
   outline: none;
   -webkit-appearance: none;
-
-  &:hover + #cstm-tool-tip {
-    visibility: visible;
-  }
 }
 
 .ellipsis {

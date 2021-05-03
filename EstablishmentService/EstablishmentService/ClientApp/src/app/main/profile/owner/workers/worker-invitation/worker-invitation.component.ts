@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
-import { EstablishmentWorkerService } from '../../../../../services/establishment-worker.service';
 import { DialogService } from '../../../../../services/dialog.service';
 import { environment } from '../../../../../../environments/environment';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { EstablishmentWorkerService } from '../../../../../services/establishment/establishment-worker.service';
 
 @Component({
   selector: 'worker-invitation',

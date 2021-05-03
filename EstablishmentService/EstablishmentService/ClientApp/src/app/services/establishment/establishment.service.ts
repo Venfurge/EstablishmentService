@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { EditEstablishmentRequestModel } from '../models/establishment/edit-establishment-request.model';
-import { EstablishmentModel } from '../models/establishment/establishment.model';
-import { IdModelRequest } from '../models/id-model-request.model';
-import { APIEstablishmentService } from './api/api-establishment.service';
-import { DialogService } from './dialog.service';
+import { EditEstablishmentRequestModel } from '../../models/establishment/edit-establishment-request.model';
+import { EstablishmentModel } from '../../models/establishment/establishment.model';
+import { IdModelRequest } from '../../models/id-model-request.model';
+import { APIEstablishmentService } from '../api/api-establishment/api-establishment.service';
+import { DialogService } from '../dialog.service';
 
 @Injectable()
 export class EstablishmentService {

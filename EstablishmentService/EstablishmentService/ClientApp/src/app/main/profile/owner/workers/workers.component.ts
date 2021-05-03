@@ -7,8 +7,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Subject } from 'rxjs';
 import { UserModel } from '../../../../models/user/user.model';
 import { DialogService } from '../../../../services/dialog.service';
-import { EstablishmentWorkerService } from '../../../../services/establishment-worker.service';
 import { WorkerInvitationComponent } from './worker-invitation/worker-invitation.component';
+import { EstablishmentWorkerService } from '../../../../services/establishment/establishment-worker.service';
 
 @Component({
     selector: 'workers',

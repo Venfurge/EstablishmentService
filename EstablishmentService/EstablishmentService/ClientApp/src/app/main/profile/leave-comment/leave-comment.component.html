@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="min-height">
+  <mat-toolbar color="primary" class="navigation-text-color">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <div>Страви</div>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <comment-meals-search [establishmentId]="establishmentId"></comment-meals-search>
+
+  <comment-meals-list [establishmentId]="establishmentId" fxFlex></comment-meals-list>
+
+  <button mat-raised-button
+          color="primary"
+          (click)="createCommentInvitation()">
+    Залишити відгук
+  </button>
+</div>

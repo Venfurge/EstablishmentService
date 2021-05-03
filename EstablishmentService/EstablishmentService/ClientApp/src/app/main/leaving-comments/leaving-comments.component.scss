@@ -1,0 +1,43 @@
+@import 'src/app.theme.scss';
+
+.meal-container {
+  min-width: 400px;
+  margin-top: 12px;
+
+  @include media-breakpoint('xs') {
+    min-width: 300px;
+  }
+
+  .meal-img {
+    max-height: 250px;
+    width: auto;
+  }
+
+  .meal-name {
+    font-weight: bold;
+    font-size: 24px;
+    max-width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .meal-weight {
+    font-weight: lighter;
+    font-size: 14px;
+  }
+
+  .meal-price {
+    font-weight: lighter;
+    font-size: 14px;
+  }
+
+  .comment-input {
+    min-height: 160px;
+  }
+}
+
+.leave-comments-btn {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

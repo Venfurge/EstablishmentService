@@ -5,8 +5,6 @@ using EstablishmentService.Models;
 using EstablishmentService.Models.Meal;
 using EstablishmentService.Models.User;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -70,6 +68,18 @@ namespace EstablishmentService.Services
 
             //Return response
             return response;
+        }
+
+        public async Task<MealModel> GetMealById(int mealId)
+        {
+            var mealEntity = await _db.Meals
+                .Include(v => v.Preview)
+                .FirstOrDefaultAsync(v => v.Id == mealId);
+
+            if (mealEntity == null)
+                throw new NotFoundException("Meal");
+
+            return MealMapper.Map(mealEntity);
         }
 
         public async Task<MealModel> AddMeal(int establishmentId, EditMealRequest model)

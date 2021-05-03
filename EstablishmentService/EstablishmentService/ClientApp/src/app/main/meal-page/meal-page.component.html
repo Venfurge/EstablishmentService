@@ -1,0 +1,64 @@
+<div *ngIf="meal" fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxLayout="row" fxLayoutAlign="center stretch" class="my-12">
+    <mat-card class="meal-card-container"
+              fxLayout="row" fxLayout.xs="column"
+              fxLayoutAlign="start stretch">
+
+      <img *ngIf="meal.preview" class="meal-preview" src="{{meal.preview.link}}" />
+      <img *ngIf="!meal.preview" class="meal-preview" src="/images/empty-avatar.jpg" />
+
+      <div class="meal-info-container" fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
+        <div fxLayout="column" fxFlex>
+          <span class="meal-title ellipsis-title">{{meal.name}}</span>
+
+          <span class="meal-description ellipsis-description" fxFlex>{{meal.description}}</span>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+          <div class="pt-12" fxLayout="column" fxLayoutGap="4px">
+            <span class="meal-weight">Вага: {{meal.weight}} г</span>
+            <span class="meal-price">Ціна: {{meal.price}} грн</span>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+
+  </div>
+
+  <div class="mb-12" fxLayout="row" fxLayoutAlign="center start">
+    <mat-card class="meal-comments-container" fxLayout="column" fxLayoutGap="16px">
+      <div *ngIf="comments.length" fxLayout="column" fxLayoutGap="16px">
+        <div *ngFor="let comment of comments" fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="16px">
+          <div fxLayout="row" fxLayoutAlign="start start">
+            <img *ngIf="comment.user.image" class="profile-img" src="{{comment.user.image.link}}" />
+
+            <img *ngIf="!comment.user.image" class="profile-img" src="/images/empty-avatar.jpg" />
+          </div>
+
+          <div fxLayout="column" fxLayoutAlign="start start">
+            <span *ngIf="!comment.user.firstName && !comment.user.secondName" class="profile-name">
+              {{comment.user.login}}
+            </span>
+            <span *ngIf="comment.user.firstName && !comment.user.secondName" class="profile-name">
+              {{comment.user.firstName}}
+            </span>
+            <span *ngIf="comment.user.firstName && comment.user.secondName" class="profile-name">
+              {{comment.user.firstName}} {{comment.user.secondName}}
+            </span>
+            <span>
+              {{comment.text}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!comments.length" class="no-comments-text" fxLayout="row" fxLayoutAlign="center stretch">
+        <span>Коментарів не знайдено</span>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="!meal" class="meal-not-found" fxLayout="row" fxLayoutAlign="center stretch">
+  Error 404 - Not Found
+</div>

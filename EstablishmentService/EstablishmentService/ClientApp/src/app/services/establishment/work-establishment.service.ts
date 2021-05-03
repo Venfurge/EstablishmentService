@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { EstablishmentModel } from '../models/establishment/establishment.model';
-import { APIEstablishmentService } from './api/api-establishment.service';
-import { APIWorkEstablishmentService } from './api/api-work-establishment.service';
-import { DialogService } from './dialog.service';
+import { EstablishmentModel } from '../../models/establishment/establishment.model';
+import { APIWorkEstablishmentService } from '../api/api-establishment/api-work-establishment.service';
+import { DialogService } from '../dialog.service';
 
 @Injectable()
 export class WorkEstablishmentService {

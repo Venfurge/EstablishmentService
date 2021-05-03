@@ -1,0 +1,22 @@
+<mat-card class="meal-card-container"
+          fxLayout="row" fxLayout.xs="column"
+          fxLayoutAlign="start stretch">
+
+  <a [routerLink]="['/meal', meal.id]">
+    <img *ngIf="meal.preview" class="meal-preview" src="{{meal.preview.link}}" />
+    <img *ngIf="!meal.preview" class="meal-preview" src="/images/empty-avatar.jpg" />
+  </a>
+
+  <div class="meal-info-container" fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
+    <div fxLayout="column">
+      <span class="meal-title ellipsis-title">{{meal.name}}</span>
+
+      <span class="meal-description ellipsis-description" fxFlex>{{meal.description}}</span>
+
+      <div class="pt-12" fxLayout="column" fxLayoutGap="4px">
+        <span class="meal-weight">Вага: {{meal.weight}} г</span>
+        <span class="meal-price">Ціна: {{meal.price}} грн</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -4,8 +4,9 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EstablishmentModel } from '../../../models/establishment/establishment.model';
 import { DialogService } from '../../../services/dialog.service';
-import { EstablishmentWorkerService } from '../../../services/establishment-worker.service';
-import { WorkEstablishmentService } from '../../../services/work-establishment.service';
+import { EstablishmentWorkerService } from '../../../services/establishment/establishment-worker.service';
+import { WorkEstablishmentService } from '../../../services/establishment/work-establishment.service';
+import { LeaveCommentComponent } from '../leave-comment/leave-comment.component';
 
 @Component({
     selector: 'work-establishments',
@@ -42,6 +43,16 @@ export class WorkEstablishmentsComponent implements OnInit, OnDestroy {
       if (result) {
         this._establishmentWorkerService.onDeleteMeFromEstablishment.next(id);
       }
+    });
+  }
+
+  leaveComment(id: number) {
+    let dialogRef = this.dialog.open(LeaveCommentComponent, {
+      panelClass: 'dialog-container-zero-padding',
+      width: '600px',
+      data: {
+        establishmentId: id,
+      },
     });
   }
 

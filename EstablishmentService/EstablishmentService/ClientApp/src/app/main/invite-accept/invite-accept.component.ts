@@ -2,12 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
-import { EstablishmentWorkerService } from '../../services/establishment-worker.service';
+import { EstablishmentWorkerService } from '../../services/establishment/establishment-worker.service';
 
 @Component({
   selector: 'invite-accept',
-  templateUrl: './invite-accept.component.html',
-  styleUrls: ['./invite-accept.component.scss']
 })
 export class InviteAcceptComponent implements OnInit, OnDestroy  {
   public inviteToken: string;

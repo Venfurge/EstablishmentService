@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <mat-toolbar color="primary" class="navigation-text-color">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <div>Запрошення</div>
+      <button mat-icon-button (click)="close()">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch"
+       class="p-12">
+
+    <div *ngIf="invitationLink" fxLayout="row" fxLayoutAlign="center center">
+      <qrcode [qrdata]="invitationLink" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
+    </div>
+
+    <div *ngIf="!invitationLink" fxLayout="row" fxLayoutAlign="center center" class="h-200">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+
+  <button *ngIf="invitationLink"
+          mat-raised-button
+          color="primary"
+          (click)="copyUrlToClipboard()">
+    Copy URL
+  </button>
+</div>
+

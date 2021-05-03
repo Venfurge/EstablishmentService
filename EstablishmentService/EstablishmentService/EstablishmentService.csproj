@@ -45,6 +45,8 @@
     <None Remove="ClientApp\src\app\models\api-response.model.ts" />
     <None Remove="ClientApp\src\app\models\auth\login-request.model.ts" />
     <None Remove="ClientApp\src\app\models\auth\login-response.model.ts" />
+    <None Remove="ClientApp\src\app\models\comment\add-meal-comment-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\comment\meal-comment.model.ts" />
     <None Remove="ClientApp\src\app\models\establishment\edit-establishment-request.model.ts" />
     <None Remove="ClientApp\src\app\models\establishment\establishment.model.ts" />
     <None Remove="ClientApp\src\app\models\id-model-request.model.ts" />
@@ -53,6 +55,7 @@
     <None Remove="ClientApp\src\app\models\layout\navigation-link.model.ts" />
     <None Remove="ClientApp\src\app\models\meal\edit-meal-request.model.ts" />
     <None Remove="ClientApp\src\app\models\meal\get-meals-request.model.ts" />
+    <None Remove="ClientApp\src\app\models\meal\meal-checked.model.ts" />
     <None Remove="ClientApp\src\app\models\meal\meal.model.ts" />
     <None Remove="ClientApp\src\app\models\model-response.model.ts" />
     <None Remove="ClientApp\src\app\models\single-value.model.ts" />
@@ -74,6 +77,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\api-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\auth\login-response.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\comment\add-meal-comment-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\comment\meal-comment.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\establishment\edit-establishment-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\establishment\establishment.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\id-model-request.model.ts" />
@@ -82,6 +87,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\layout\navigation-link.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\meal\edit-meal-request.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\meal\get-meals-request.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\meal\meal-checked.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\meal\meal.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\model-response.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\single-value.model.ts" />

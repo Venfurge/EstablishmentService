@@ -2,15 +2,16 @@
   <div fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="profile-info-card mt-12"
               fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="12px"
-              fxLayoutAlign="start stretch" fxLayoutAlign.lt-md="start center">
+              fxLayoutAlign="start stretch" fxLayoutAlign.lt-md="start center"
+              *ngIf="userProfile">
 
       <div>
-        <div *ngIf="!userProfile.image">
+        <div *ngIf="!userProfile || userProfile && !userProfile.image">
           <img class="profile-img" src="/images/empty-avatar.jpg"
                (click)="changeAvatar()" />
         </div>
 
-        <div *ngIf="userProfile.image">
+        <div *ngIf="userProfile && userProfile.image">
           <img class="profile-img" src="{{userProfile.image.link}}"
                (click)="changeAvatar()" />
         </div>
@@ -87,7 +88,7 @@
     </mat-card>
   </div>
 
-  <div class="profile-tabs-block mb-12" fxLayout="row" fxLayoutAlign="center start">
+  <div *ngIf="userProfile" class="profile-tabs-block mb-12" fxLayout="row" fxLayoutAlign="center start">
     <mat-card class="profile-mat-tabs">
       <mat-tab-group [selectedIndex]="selectedTabIndex"
                      (selectedIndexChange)="onTabChanged($event)"
@@ -106,7 +107,7 @@
           <meals></meals>
         </mat-tab>
 
-        <mat-tab label="Коментарі"> Коментарі </mat-tab>
+        <!--<mat-tab label="Коментарі"> Коментарі </mat-tab>-->
       </mat-tab-group>
     </mat-card>
   </div>

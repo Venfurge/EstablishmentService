@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { GetWorkersRequestModel } from '../../../../../models/workers/get-workers-request.model';
-import { EstablishmentWorkerService } from '../../../../../services/establishment-worker.service';
+import { EstablishmentWorkerService } from '../../../../../services/establishment/establishment-worker.service';
 
 @Component({
   selector: 'worker-search',

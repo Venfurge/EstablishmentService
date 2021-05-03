@@ -170,6 +170,8 @@ namespace EstablishmentService
             services.AddTransient<EstablishmentInvitationService>();
             services.AddTransient<EstablishmentWorkerService>();
             services.AddTransient<WorkEstablishmentsService>();
+            services.AddTransient<CommentInvitationService>();
+            services.AddTransient<CommentService>();
         }
     }
 }

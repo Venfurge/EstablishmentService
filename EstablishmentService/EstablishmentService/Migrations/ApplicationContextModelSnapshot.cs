@@ -29,9 +29,6 @@ namespace EstablishmentService.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Mark")
-                        .HasColumnType("int");
-
                     b.Property<int>("MealId")
                         .HasColumnType("int");
 

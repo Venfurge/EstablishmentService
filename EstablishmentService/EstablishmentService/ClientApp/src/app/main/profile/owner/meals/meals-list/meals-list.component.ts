@@ -7,12 +7,12 @@ import { Subject } from 'rxjs';
 import { GetMealsRequestModel } from '../../../../../models/meal/get-meals-request.model';
 import { MealModel } from '../../../../../models/meal/meal.model';
 import { DialogService } from '../../../../../services/dialog.service';
-import { MealService } from '../../../../../services/meal.service';
 import { takeUntil } from 'rxjs/operators';
 import { IdModelRequest } from '../../../../../models/id-model-request.model';
-import { MealsTabService } from '../../../../../services/meals-tab.service';
 import { EditMealComponent } from '../edit-meal/edit-meal.component';
 import { AddMealComponent } from '../add-meal/add-meal.component';
+import { MealService } from '../../../../../services/meal/meal.service';
+import { MealsTabService } from '../../../../../services/meal/meals-tab.service';
 
 @Component({
   selector: 'meals-list',

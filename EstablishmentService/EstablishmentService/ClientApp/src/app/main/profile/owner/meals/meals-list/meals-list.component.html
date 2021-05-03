@@ -65,20 +65,24 @@
     <ng-container matColumnDef="preview">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Фото</mat-header-cell>
       <mat-cell *matCellDef="let meal">
-        <div class="preview-tool-tip-btn">
+
+        <popover-content #imgMealPopover
+                         popoverSize="auto">
+          <div *ngIf="meal.preview"
+               class="custom-tool-tip-box"
+               [style.background]="'url('+ meal.preview.link +')'">
+
+          </div>
+
+          <div *ngIf="!meal.preview"
+               class="custom-tool-tip-box"
+               [style.background]="'url(images/empty-avatar.jpg)'">
+
+          </div>
+        </popover-content>
+
+        <div [popover]="imgMealPopover" class="preview-tool-tip-btn">
           Preview
-        </div>
-
-        <div *ngIf="meal.preview"
-             id="cstm-tool-tip"
-             class="custom-tool-tip-box"
-             [style.background]="'url('+ meal.preview.link +')'">
-        </div>
-
-        <div *ngIf="!meal.preview"
-             id="cstm-tool-tip"
-             class="custom-tool-tip-box"
-             [style.background]="'url(images/empty-avatar.jpg)'">
         </div>
       </mat-cell>
     </ng-container>
